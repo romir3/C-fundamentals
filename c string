@@ -1,4 +1,6 @@
 c-string
+
+ #include<cctype>
 isalnum
  checks if a character is alphanumeric
 (function)
@@ -80,3 +82,36 @@ namespace std {
   int tolower(int c);
   int toupper(int c);
 }
+#include<cstring>
+std::strlen(str) for length of string str
+can find length of str if str is a string or length of the message pointer str is pointing to
+std::strcmp(str1,str2)==
+gives 0 if both strings same
+negative if lhs string comes before RHS string in lexicographic order
+positive if vice versa
+this comparison happens for first byte of difference between strings
+
+std::strncmp(str1,str2,n)
+n=no. of places to compare in the strings
+
+you cant change where a string points
+
+Summary of Assignability
+String Type	Assignable to New Value?	Example
+char[]	❌	Compile-time error if assigned directly.
+char*	✔ (Pointer reassignment)	Pointer can be reassigned.
+std::string	✔	Fully assignable.
+
+const char* result{};
+result=std::strchr(str,target);
+strchr gives pointer for the location of target element in string
+str is pointer for string(basically points first element of string)
+so absoloute location of target = std::strchr(str,target) -str;
+
+ while((result = std::strchr(result, ch)) != nullptr) {
+        std::cout << "Character '" << ch << "' found at position: "
+                  << (result - str) << std::endl;
+ptr here shifts from start of string to target position of string
+
+if strchr finds first appearence of a target
+strrchr finds last appearenc of a target
