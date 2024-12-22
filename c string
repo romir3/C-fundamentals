@@ -115,3 +115,24 @@ ptr here shifts from start of string to target position of string
 
 if strchr finds first appearence of a target
 strrchr finds last appearenc of a target
+std::strcat(str1,str2); == concatenetes str2 to str1 and stored in str1
+std::strncat(str1,str2,n); == concatenetes first n charectars of str2 to str1 and stored in str1
+
+if strcat appends, strcpy replaces
+std::strcpy(str1,str2) == replaces elements of str1 by elements of str2 and stores new string in str1
+
+std::strncpy(str1,str2,n) == replaces first n elements of str1 by elements of str2 and stores new string in str1
+
+#include<string>
+ std::string str; = emptystring str
+std::string str1{"gqefewukfhif"} = non empty string str1
+std::string str2{str1}= intitialised by other string
+std::string str2{"abcdef",4}= grabs only  4 chars in string literal
+std::string str2{5,'e'}= creates a string having char e copied 4 times
+
+
+std::string str2{str1,6,5}= intitialised by other string and starting at index 6 , grabs first 5 chars of str1
+
+str2 ={"lknf"}=std::string allows reassignment of string data to str2 without space waste as on reassignment initial memory occupied by string is destroyed for str2 to point to other memory with different string data
+same cant be said for const char*ptr{"akal"}
+ptr={"ewdjsoik"}, this causes ptr to simply point to diff memory having given string data while intilaly memory location hacing string datat akal doesnt get destroyed like before and simply stays wasting memory resources
