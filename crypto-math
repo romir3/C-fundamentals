@@ -1,0 +1,25 @@
+crypto
+
+
+modular maths== a=b mod m
+means a%m =b 
+remainder is b
+
+
+Z/pz == all integers modulo p ; Z= a mod p is a ring 
+[a] is a residue(remainder) class or element for such a ring, a in {0,p-1}
+and if p is prime its a field.
+
+
+Fermat little theorem 
+a^p mod p = a mod p
+
+3^16 mod 17= 3^16 mod 17* 3 mod17/3 mod 17= 3^17 mod 17/3 mod 17 =1
+
+g*d = 1mod p= g (*p) d =1 = g*d % p =1 
+
+a*a % p = b;(a*a)=b mod p; here a is sq root of b in field Z/pz 
+not every element in given field has a sq root but every element has a square due to multiplicative closure of rings
+an integer x is a quadratic residue if there exists an 'a' such that a^2=x mod p. else its called a quadratic non residue.
+so x is a quadratic residue if there exists a sq root of it on Z/pz domain
+
