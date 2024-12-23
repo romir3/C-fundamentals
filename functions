@@ -1,0 +1,72 @@
+ datatype1 function_name(param 1,param2,..) ==function defination
+datatyp1 is the datatype for return type  or output of function
+param1,param2, are inputs to function
+
+
+function call==
+output  = function_name(input1,input2,..) INPUT=ARGUMENT TO BE IN PLACE OF PARAMETERS
+
+example void dan(int age)
+void if there is no return value for a function
+
+call 
+dan(2)
+ implicit conversions if param is int for a function but u gave a double as input function implicitly converts it to int for use
+
+variables generated inside function if match with given inputs to the function just are local var that take value of input use it and die when function ends
+so changes in such var dont affect the actual inputs used here fotr function
+
+functions need to be declared before int main()
+
+sometimes functions can be declared without being defined before the int main() and it later can be defined after the int main 
+this declaration type is called header ex == void ran(int a,int b);
+this declared function needs to be defined later to show its use ex void ran(int a,int b){
+    int c=a+b;
+    std::cout<<c<<"\n";
+function declaration only includes  header that needs to be before int main()
+function defination includes full function
+
+also function needs to be declared first before defined so if header exists it needs to be before function call
+if there is no header we need to have entire function defined before function call or int main()
+
+
+source file --(preprocessing)--> translation units( #include statements from source file has all its headers included copied here) -----(compilation)-->object(binary representation of translation unit)---(linker)---> all binary files combined here
+no. of translation units==no. of objects
+
+
+#include is a preprocessor directive that has preprocessor go to the file in #include file and pastes all stuff in that file in place of #include file
+
+how to execute multi file linker== g++ main.cpp function.cpp -o text
+function file = function.h + function.cpp
+
+in a multi file funcion its the linker that finds and combines objects for final binary executable
+pass by value has no pointer involved so var inside and outside function maybe named same but diff var (local and global) and occupy diff spaces in memory
+
+pass by pointer
+here local pointer age points to global var age,so changes in local pointer value cause changes in global var age
+#include <iostream>
+
+void say_age(int* age); // Declaration
+
+int main(){
+
+    int age{23}; // Local
+    std::cout << "age (before call) : " << age << "&age : " << &age << std::endl; //23
+    say_age(&age); // Argument
+    std::cout << "age (after call) : " << age << "&age : " << &age <<  std::endl; //24
+
+    return 0;
+}
+
+
+void say_age(int* age){ // Parameter
+    ++(*age); 
+    std::cout <<  "Hello , you are " << *age << " years old! &age : " << &age <<  std::endl;//24
+
+for pass by reference juts use void func(int & a)
+function call == func(a)
+so local a is refernce of global a
+ here changes in local affect globzl var too as local is a referevce to global
+so share same memory
+
+}
