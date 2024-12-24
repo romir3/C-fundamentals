@@ -65,8 +65,26 @@ void say_age(int* age){ // Parameter
 
 for pass by reference juts use void func(int & a)
 function call == func(a)
+  std::cout <<  "Hello , you are " << age << " years old! &age : " << &age <<  std::endl;
 so local a is refernce of global a
  here changes in local affect globzl var too as local is a referevce to global
 so share same memory
+
+function paramterd can also input and output
+normally we need output changes inside function to reflect on output global var too so we define ouptut using references or pointers
+function(const std::string input, std::string &output) here changes doen in output will be reflected outside the function too as its a reference
+here there is no need to return as output being a refrence input parameter for a function gets updated during the function
+strings generally take lot of memory space so we use return by reference instead of return by value when it comes to strings as it takes up lot of memory to create 2 strings (local and global ) in return by value
+sometimes even if code is written for return by value when it comes to std::strings the compiler optimises the code by default by assigning the same memory to local and global variable used here thereby returning by reference
+
+Function overloading
+same function different parameters 
+re
+functions can be overloaded by changing parameter-
+1}order
+2}number
+3}datatype
+
+
 
 }
