@@ -87,8 +87,116 @@ functions can be overloaded by changing parameter-
 You cant overload functions on return type alone as return type isnt used that much to differentiate functions
 for multiple overloaded parts of a function name the compiler selects the overloaded subpart of function based on inputs in function call
 
+2. String View
+A string view is a lightweight, non-owning reference to a string or part of a string.
+It does not manage memory; it merely provides a way to access characters of an existing string (or literal) without copying them.
+In C++, std::string_view was introduced in C++17 to enable efficient string handling without the overhead of copying
+ex #include <string_view>
+
+std::string_view view = "Hello, World!";
+
+
+1. String Literal
+A string literal is a fixed sequence of characters enclosed in double quotes, like "Hello, World!".
+It is stored as a constant array of characters, usually in read-only memory.
+In C++, string literals are null-terminated by default (\0 is appended at the end).
+ex const char* str = "Hello, World!";
+
+Share
+
+
+You said:
+whats the difference between string view and string literal
+ChatGPT said:
+ChatGPT
+The difference between a string view and a string literal lies in their purpose, behavior, and implementation, particularly in programming languages like C++.
+
+1. String Literal
+A string literal is a fixed sequence of characters enclosed in double quotes, like "Hello, World!".
+It is stored as a constant array of characters, usually in read-only memory.
+In C++, string literals are null-terminated by default (\0 is appended at the end).
+Example:
+cpp
+Copy code
+const char* str = "Hello, World!";
+Characteristics:
+
+The memory is managed by the compiler.
+String literals are immutable; modifying their contents is undefined behavior.
+The type of a string literal in C++ is const char[].
+2. String View
+A string view is a lightweight, non-owning reference to a string or part of a string.
+It does not manage memory; it merely provides a way to access characters of an existing string (or literal) without copying them.
+In C++, std::string_view was introduced in C++17 to enable efficient string handling without the overhead of copying.
+Example:
+cpp
+Copy code
+#include <string_view>
+
+std::string_view view = "Hello, World!";
+Characteristics:
+
+It is not null-terminated, unlike string literals.
+It is often used for read-only operations on strings or substrings.
+Modifying the underlying string (if it's mutable) while a string_view refers to it leads to undefined behavior.
+Key Differences:
+Feature	String Literal	    String View
+Ownership	Owns its memory.   	Non-owning reference.
+Memory Management	Compiler-managed.   	Does not manage memory.
+Immutability	Immutable (modifying causes undefined behavior).	    Read-only by design.
+Null Termination	Null-terminated.	    Not necessarily null-terminated.
+Use Case	Storing fixed, immutable strings.    	Efficient manipulation of existing strings or substrings.
+Type	const char[]	.    std::string_view (in C++).
+
+#include <iostream>
+#include <string_view>
+
+void printSubstring(std::string_view sv) ;
+    
+int main() {
+    std::string str = "Hello, World!";
+    printSubstring(str.substr(7));        // Creates a temporary substring.
+    printSubstring(std::string_view(str).substr(7)); // No allocation or copy.
+    return 0;
+}
+
+void printSubstring(std::string_view sv) {
+    std::cout << sv << '\n';} 
+
+Lambda functions:->
+[capture list](parameters)-> return type{ function body};
+return type is optional and can be solved by compiler
+
+auto func =[capture list](parameters)-> return type{ function body};/function defination
+func(parameter vise inputs);/function call
+here func is name of lambda function that can be used for function call
+
+nameless lambda function
+[capture list](parameters)-> return type{ function body}(parameter vise inputs);/function defination+function call
+
+capture list gives var captured by function in surrounding scope
+for lambda function if there is no return value then function need not return a value to any var and can be declared and definied just like taht
+example: [](double a){ std::cout<<a;}(10.2);
+if return value present then:
+auto result=[](double a){return a;}(10.2);
+here result stores output of lambda func
+
+lambda function can stored directly in output ex
+std::cout<< [](double a){ return a;}(10.2)<<std::endl;
+or auto func=[](double a){return a;}; func is function name of lambda function here
+std::cout<< func(10.2)<<std::endl;
+
+in return by value a copy of variable(local) is created so may have different address values 
+in return by refernce no var are copied all are related to same address
+
+capture by value for lamdafunc
+int a;
+auto func= [a](){ std::cout<<a;}; here  intitated var a ka value is captured for use by lamda func as a copy of var a is created to use by func
+if we do this: auto func= [&a](){ std::cout<<a;}; its capture by reference the var'a' used in func and the var 'a' used outside hold same memory so no copying var takes place
+if we want to capture every var declared  outside lambda functiom by value use [=] for capture list
+same but capture all by reference use [&] for capture list
 
 
 
-
+i
 }
