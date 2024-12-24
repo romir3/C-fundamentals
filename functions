@@ -78,12 +78,16 @@ strings generally take lot of memory space so we use return by reference instead
 sometimes even if code is written for return by value when it comes to std::strings the compiler optimises the code by default by assigning the same memory to local and global variable used here thereby returning by reference
 
 Function overloading
-same function different parameters 
-re
+same function name different parameters (each overloaded subpart of a function name is free to have different function defination)
+ex max(int a,int b) and max(double a, double b) etc....
 functions can be overloaded by changing parameter-
 1}order
 2}number
 3}datatype
+You cant overload functions on return type alone as return type isnt used that much to differentiate functions
+for multiple overloaded parts of a function name the compiler selects the overloaded subpart of function based on inputs in function call
+
+
 
 
 
