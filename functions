@@ -199,4 +199,22 @@ same but capture all by reference use [&] for capture list
 
 
 i
+
 }
+
+Function templates:
+template <typename T> T maximum(T a,T b); #template declaration
+
+template <typename T> T maximum(T a,T b){
+function body
+}
+here T  = datatype 
+maximum =name of overloaded function
+c++ compiler generates real function after looking at templates called template instance
+
+
+if we say func<double>(a,b) it means we are explicitly generating a template instance of double for inputs a and b , such function allows implicit conversions of int to double if a/b is int which is normally not possible if we directly acess the template as that needs both inputs of samet ype to generate a valid template instance
+here by making temp instance double predefined there is space for implicit datatype conversions
+
+template <typename T> T maximum(T a,T b); ==> template type parameters by value
+template <typename T> const T& maximum(const T& a,const T& b); : parameter by reference
