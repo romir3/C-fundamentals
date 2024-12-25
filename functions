@@ -219,3 +219,55 @@ here by making temp instance double predefined there is space for implicit datat
 template <typename T> T maximum(T a,T b); ==> template type parameters by value
 template <typename T> const T& maximum(const T& a,const T& b); : parameter by reference
 here const is used to make sure a and b values are not changed within the template instance fucntion of given inputs a and b
+
+for some inputs template function may not be optimal so in such cases we do template specialisation
+ex
+template<typename T>T add(T a,T b){
+    if (a>b){
+        return a;}
+    else {
+        return b;
+
+    }}
+
+    template <>//template specialisation for pointer inputs
+    const char* add<const char*>(const char* a,const char* b){
+        return (std::strcmp(a,b)>0)?a:b;
+
+
+conecept templates
+library used== #include<concepts>
+
+template<typename T>
+requires std::integral<T> #concept used in template here that makes template run only if input parameter T is an integral type(int or char)
+T add(T a,T b){
+ if (a>b){
+        return a;}
+    else {
+        return b;
+
+    }}
+concepts return a bool  value that dont cause compile time error only when bool==1
+
+auto add(std::integral auto a, auto b){return a-b;# std::integral makes a take only char/int value or error
+}
+https://en.cppreference.com/w/cpp/concepts # for more about concepts 
+
+custom concepts:
+template<typename t>
+concept concept_name = std::is_integral_v<t> # custom concept declared and defined
+                       concept defined here (what the concept means)
+concept multipliable =requires(T a,T b){
+a*b;
+}# this concept just makes sure that parametr T allows a*b as a valid syntax 
+
+concept incrementable =requires(T a){
+a++;
+++a;
+a+=1;} 
+# this concept makes sure the parameter a can be incremented
+
+concept call
+requires incrementable<T> #T is input datatype
+
+
