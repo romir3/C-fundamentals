@@ -218,3 +218,4 @@ here by making temp instance double predefined there is space for implicit datat
 
 template <typename T> T maximum(T a,T b); ==> template type parameters by value
 template <typename T> const T& maximum(const T& a,const T& b); : parameter by reference
+here const is used to make sure a and b values are not changed within the template instance fucntion of given inputs a and b
