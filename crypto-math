@@ -23,3 +23,33 @@ not every element in given field has a sq root but every element has a square du
 an integer x is a quadratic residue if there exists an 'a' such that a^2=x mod p. else its called a quadratic non residue.
 so x is a quadratic residue if there exists a sq root of it on Z/pz domain
 
+All primes that aren't 2 are of the form 
+p≡1mod4
+p≡1mod4 or p≡3mod4
+p≡3mod4, since all odd numbers obey these congruences. As the previous challenge hinted, in the 
+p≡3mod4
+p≡3mod4 case, a really simple formula for computing square roots can be derived directly from Fermat's little theorem. That leaves us still with the 
+p≡1mod4
+p≡1mod4 case, so a more general algorithm is required.
+
+In a congruence of the form 
+r^2≡amodp
+ ≡amodp, Tonelli-Shanks calculates 
+r
+r.
+
+
+c = b^e mod m. From the definition of division, it follows that 0 ≤ c < m.
+es, for the congruence 
+
+a≡b(modm), we can say:
+
+
+amodm=b
+Explanation:
+Congruence Definition: The statement 
+
+a≡b(modm) means that 
+a and 
+b leave the same remainder when divided by 
+𝑚
