@@ -136,3 +136,5 @@ std::string str2{str1,6,5}= intitialised by other string and starting at index 6
 str2 ={"lknf"}=std::string allows reassignment of string data to str2 without space waste as on reassignment initial memory occupied by string is destroyed for str2 to point to other memory with different string data
 same cant be said for const char*ptr{"akal"}
 ptr={"ewdjsoik"}, this causes ptr to simply point to diff memory having given string data while intilaly memory location hacing string datat akal doesnt get destroyed like before and simply stays wasting memory resources
+
+vector<string> strname ; # we can use vector to declare an array and then later assign values to it
