@@ -52,4 +52,232 @@ Congruence Definition: The statement
 a≡b(modm) means that 
 a and 
 b leave the same remainder when divided by 
-𝑚
+
+
+
+
+
+You've been asked out on a date, and you want to send a message telling them that you'd love to go, however a jealous lover isn't so happy about this.
+
+When you send your message saying yes, your jealous lover intercepts the message and corrupts it so it now says no!
+
+We can protect against these attacks by cryptographically signing the message.
+
+Imagine you write a message 
+
+
+To sign this message, you calculate the hash of the message: 
+
+H(m) and "encrypt" this with your private key: 
+
+S=H(m)^d(mod N)
+thats one way to encrypt it
+the friend can decrypt it using public key == H(m)^de=H(m) == hash of original message so verified
+m=c 
+
+
+In real cryptosystems, it's best practice to use separate keys for encrypting and signing messages.
+
+
+
+
+https://brilliant.org/wiki/eulers-theorem/
+https://leimao.github.io/blog/Public-Key-Cryptosystem-and-Digital-Signature/
+https://en.wikipedia.org/wiki/Lenstra_elliptic-curve_factorization
+This excerpt explains the concept of point addition on an elliptic curve in the context of modular arithmetic (i.e., modulo 
+𝑛
+n) and highlights its implications, including cases where it leads to the point at infinity or reveals a non-trivial factor of 
+𝑛
+n. Here's a breakdown of the main points:
+
+1. Point Addition on Elliptic Curves
+In elliptic curve arithmetic, you can add two points 
+𝑃
+P and 
+𝑄
+Q on the curve to obtain another point 
+𝑅
+R on the curve. Repeated addition (i.e., 
+[
+𝑘
+]
+𝑃
+=
+𝑃
++
+𝑃
++
+⋯
++
+𝑃
+[k]P=P+P+⋯+P) is called scalar multiplication.
+The addition formula involves calculating the slope (
+𝑢
+/
+𝑣
+u/v) of the line joining 
+𝑃
+P and 
+𝑄
+Q, followed by modular arithmetic operations.
+2. Division in Modular Arithmetic
+Division in modular arithmetic is not straightforward. To divide by 
+𝑣
+v modulo 
+𝑛
+n, we need the modular inverse of 
+𝑣
+v, which exists if and only if:
+gcd
+⁡
+(
+𝑣
+,
+𝑛
+)
+=
+1
+gcd(v,n)=1
+The extended Euclidean algorithm is used to calculate the modular inverse of 
+𝑣
+v.
+3. Special Case: 
+𝑣
+≡
+0
+m
+o
+d
+ 
+ 
+𝑛
+v≡0modn
+When 
+𝑣
+=
+0
+m
+o
+d
+ 
+ 
+𝑛
+v=0modn, the slope of the line becomes undefined. Geometrically, this corresponds to a vertical line that intersects the curve at 
+𝑃
+(
+𝑥
+,
+𝑦
+)
+P(x,y) and its reflection 
+𝑃
+′
+(
+𝑥
+,
+−
+𝑦
+)
+P 
+′
+ (x,−y).
+In such cases, the result of the point addition is defined as the point at infinity (
+∞
+∞), which acts as the identity element in the elliptic curve group.
+4. Implications of 
+gcd
+⁡
+(
+𝑣
+,
+𝑛
+)
+≠
+1
+gcd(v,n)
+
+=1
+If 
+gcd
+⁡
+(
+𝑣
+,
+𝑛
+)
+≠
+1
+gcd(v,n)
+
+=1, it means 
+𝑣
+v shares a non-trivial common factor with 
+𝑛
+n.
+This condition prevents modular division from being valid, as the modular inverse of 
+𝑣
+v does not exist.
+However, finding 
+gcd
+⁡
+(
+𝑣
+,
+𝑛
+)
+gcd(v,n) in this case reveals a non-trivial factor of 
+𝑛
+n. This is significant in cryptography because:
+It can break the security of systems relying on the hardness of factoring 
+𝑛
+n, such as RSA or elliptic curve cryptographic protocols.
+5. Summary of Scenarios
+gcd
+⁡
+(
+𝑣
+,
+𝑛
+)
+=
+1
+gcd(v,n)=1:
+Modular division is valid, and the point addition produces a new point on the curve.
+gcd
+⁡
+(
+𝑣
+,
+𝑛
+)
+≠
+1
+gcd(v,n)
+
+=1:
+Modular division is invalid, but the calculation reveals a non-trivial factor of 
+𝑛
+n.
+𝑣
+=
+0
+m
+o
+d
+ 
+ 
+𝑛
+v=0modn:
+The result of the addition is the point at infinity.
+Relevance in Cryptography
+This behavior is utilized in elliptic curve cryptography (ECC) and factorization algorithms. Specifically:
+If 
+𝑛
+n is a composite number (e.g., RSA modulus), elliptic curve operations can sometimes uncover its factors, compromising security.
+Cryptographic systems must carefully choose parameters to avoid such vulnerabilities.
+
+
+
+
+
+
