@@ -1,0 +1,9 @@
+factorial(n)==n!
+round(a,n) == round number 'a' to 'n' decimal places
+
+n(a, digit=b) =rounds number a to b digits
+import math
+math.hypot(a,b)==hypotenuse of triangle with sides a and b
+
+from math import * ==means from math lib import all func , here * is used as regex
+
